@@ -90,6 +90,8 @@ my $shopping_list = loadShoppingList();
 
 my $prices = {};
 
+
+# find products and get their prices
 foreach my $item (keys %$shopping_list) {
 
 	my $ban = {};
@@ -106,35 +108,49 @@ foreach my $item (keys %$shopping_list) {
 
 	foreach my $url (@{$shopping_list->{$item}{product_urls}}, @$found_urls) {
 		next if exists $ban->{$url};
-		my ($price, $itemPrice, $itemUnit) = GetPrice($url);
+		my ($price, $itemPrice, $itemUnit, $drop) = GetPrice($url);
 		$prices->{$item}{tmp_urls}{$url}{price} = $price;
 		$prices->{$item}{tmp_urls}{$url}{itemPrice} = $itemPrice;
 		$prices->{$item}{tmp_urls}{$url}{unit} = $itemUnit;
+		$prices->{$item}{tmp_urls}{$url}{drop} = $drop;
 	}
 }
 
+# analyze prices - separately for each shopping strategy
 my $bestDeal = {};
+
 foreach my $item (keys %$shopping_list) {
 	foreach my $url (keys %{$prices->{$item}{tmp_urls}}) {
 		unless ($prices->{$item}{tmp_urls}{$url}{price} or $prices->{$item}{tmp_urls}{$url}{itemPrice}) {
 			next;
 		}
-		my ($deal, $unit_price) = Deal($shopping_list->{$item}, $prices->{$item}{tmp_urls}{$url});
-		if (!exists $bestDeal->{$item}) {
-			$bestDeal->{$item}{url} = $url;
-			$bestDeal->{$item}{deal} = $deal;
-			$bestDeal->{$item}{invest} = $shopping_list->{$item}{max_stock_amount} * $unit_price;
-			$bestDeal->{$item}{quantity} = $shopping_list->{$item}{max_stock_amount};
-			$bestDeal->{$item}{unit} = $prices->{$item}{tmp_urls}{$url}{unit};
+		next if TooExpensive($shopping_list->{$item}, $prices->{$item}{tmp_urls}{$url});
+		my ($deal, $unit_price);
+		if ($shopping_list->{$item}{strategy}) {
+			 ($deal, $unit_price) = Drop($shopping_list->{$item}, $prices->{$item}{tmp_urls}{$url});
 		} else {
-			if ($deal > $bestDeal->{$item}{deal}) {
+			 ($deal, $unit_price) = Deal($shopping_list->{$item}, $prices->{$item}{tmp_urls}{$url});
+		}
 
-				$bestDeal->{$item}{deal} = $deal;
+		if (!exists $bestDeal->{$item}) {
+			if ($deal > 0) {
 				$bestDeal->{$item}{url} = $url;
+				$bestDeal->{$item}{deal} = $deal;
 				$bestDeal->{$item}{invest} = $shopping_list->{$item}{max_stock_amount} * $unit_price;
 				$bestDeal->{$item}{quantity} = $shopping_list->{$item}{max_stock_amount};
-			} elsif ($deal == $bestDeal->{$item}{deal}) {
+				$bestDeal->{$item}{unit} = $prices->{$item}{tmp_urls}{$url}{unit};
+			}
+		} else {
+			if ($deal == $bestDeal->{$item}{deal}) {
 				$bestDeal->{$item}{url} .= " ,".$url;
+			} else {
+				if ($deal > $bestDeal->{$item}{deal}) {
+
+					$bestDeal->{$item}{deal} = $deal;
+					$bestDeal->{$item}{url} = $url;
+					$bestDeal->{$item}{invest} = $shopping_list->{$item}{max_stock_amount} * $unit_price;
+					$bestDeal->{$item}{quantity} = $shopping_list->{$item}{max_stock_amount};
+				}
 			}
 		}
 	}
@@ -151,7 +167,18 @@ my $total = 0;
 my $total_invest = 0;
 
 foreach (keys %$bestDeal) {
-	if ($bestDeal->{$_}{deal} > 100) { # absolute saving greater then 100
+	if ($shopping_list->{$_}{strategy}) {
+		my $ratio = int($bestDeal->{$_}{deal} / $bestDeal->{$_}{invest} * 100);
+			$total += $bestDeal->{$_}{deal};
+			$total_invest += $bestDeal->{$_}{invest};
+			print pack("A20xA8xA6xA6xA9", $_, $bestDeal->{$_}{deal}, $bestDeal->{$_}{invest}, "$ratio%", $bestDeal->{$_}{quantity}.$bestDeal->{$_}{unit});
+
+			print join("\n".(' ' x 49), split(/,/, $bestDeal->{$_}{url}))."\n";
+			print ('-' x 120);
+			print "\n";
+
+
+	} elsif ($bestDeal->{$_}{deal} > 100) { # absolute saving greater then 100
 		my $ratio = int($bestDeal->{$_}{deal} / $bestDeal->{$_}{invest} * 100);
 		if ($ratio > 20) { # ROI higher then 20%
 			$total += $bestDeal->{$_}{deal};
@@ -169,6 +196,25 @@ print "Total savings: $total/year\n";
 print "Total costs: $total_invest\n";
 
 print "\n";
+
+sub TooExpensive {
+	my ($item, $price) = @_;
+	if (defined $item->{common_price}) { #price
+		return $item->{common_price} < $price->{price};
+	} elsif (defined $item->{common_unit_price}) { #itemPrice
+		return $item->{common_unit_price} < $price->{itemPrice};
+	}
+}
+
+sub Drop {
+	my ($item, $price) = @_;
+	if (defined $item->{common_price}) { #price
+		return ($price->{drop}, $price->{price});
+	} elsif (defined $item->{common_unit_price}) { #itemPrice
+		return ($price->{drop}, $price->{itemPrice});
+	}
+	die "Wrong data:".Dumper($item);
+}
 
 sub Deal {
 	my ($item, $price) = @_;
@@ -207,7 +253,10 @@ sub GetPrice {
 		$price =~ s/,/\./ if $price;
 		$pricePerItem =~ s/,/\./ if $pricePerItem;
 
-		return ($price, $pricePerItem, $itemUnit);
+		my ($drop) = $body =~ /-(..)% /;
+		$drop = 0 unless $drop;
+
+		return ($price, $pricePerItem, $itemUnit, $drop);
 	} elsif ($url eq 'http://globus.cz/toaletak') {
 		return (34, 4.25, 'ks');
 	}
