@@ -94,7 +94,7 @@ my $prices = {};
 
 # find products and get their prices
 foreach my $item (keys %$shopping_list) {
-
+	print "Fetching prices for $item ...\n";
 	my $ban = {};
 	map {$ban->{$_} = undef} @{$shopping_list->{$item}{ban_urls}};
 
@@ -109,11 +109,12 @@ foreach my $item (keys %$shopping_list) {
 
 	foreach my $url (@{$shopping_list->{$item}{product_urls}}, @$found_urls) {
 		next if exists $ban->{$url};
-		my ($price, $itemPrice, $itemUnit, $drop) = GetPrice($url);
+		my ($price, $itemPrice, $itemUnit, $drop, $original) = GetPrice($url);
 		$prices->{$item}{tmp_urls}{$url}{price} = $price;
 		$prices->{$item}{tmp_urls}{$url}{itemPrice} = $itemPrice;
 		$prices->{$item}{tmp_urls}{$url}{unit} = $itemUnit;
 		$prices->{$item}{tmp_urls}{$url}{drop} = $drop;
+		$prices->{$item}{tmp_urls}{$url}{original} = $original;
 	}
 }
 
@@ -128,7 +129,9 @@ foreach my $item (keys %$shopping_list) {
 		next if TooExpensive($shopping_list->{$item}, $prices->{$item}{tmp_urls}{$url});
 		my ($deal, $unit_price);
 		if ($shopping_list->{$item}{strategy}) {
-			 ($deal, $unit_price) = Drop($shopping_list->{$item}, $prices->{$item}{tmp_urls}{$url});
+			print  "Too cheap $item: $url\n" if TooCheap($shopping_list->{$item}, $prices->{$item}{tmp_urls}{$url});
+			next if TooCheap($shopping_list->{$item}, $prices->{$item}{tmp_urls}{$url});
+			($deal, $unit_price) = Drop($shopping_list->{$item}, $prices->{$item}{tmp_urls}{$url});
 		} else {
 			 ($deal, $unit_price) = Deal($shopping_list->{$item}, $prices->{$item}{tmp_urls}{$url});
 		}
@@ -198,6 +201,13 @@ print "Total costs: $total_invest\n";
 
 print "\n";
 
+sub TooCheap {
+	my ($item, $price) = @_;
+	return undef unless $item->{common_price};
+	my $delta = $price->{original}*0.6;
+	return $price->{original}  < ($item->{common_price} - $delta);
+}
+
 sub TooExpensive {
 	my ($item, $price) = @_;
 	if (defined $item->{common_price}) { #price
@@ -252,12 +262,20 @@ sub GetPrice {
 
 		my ($price) = $body =~ />(\d*),(\d*) Kč<\/span>/;
 		$price =~ s/,/\./ if $price;
+		$price =~ s/&#160;// if $price;
 		$pricePerItem =~ s/,/\./ if $pricePerItem;
+		$pricePerItem =~ s/&#160;// if $pricePerItem;
 
 		my ($drop) = $body =~ /-(..)% /;
 		$drop = 0 unless $drop;
 
-		return ($price, $pricePerItem, $itemUnit, $drop);
+		my ($original) = $body =~ /cena (.{3,9}) nyn/;
+		$original = $original || $price;
+		$original =~ s/,/\./ if $original;
+		$original =~ s/&#160;// if $original;
+		$original += 0;
+
+		return ($price, $pricePerItem, $itemUnit, $drop, $original);
 	} elsif ($url eq 'http://globus.cz/toaletak') {
 		return (34, 4.25, 'ks');
 	}
