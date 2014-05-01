@@ -25,6 +25,7 @@ my $furl = Furl->new(
 
 sub searchByQuery {
 	my ($query) = @_;
+	return $query if $query =~ /^http:/;
 	return "http://nakup.itesco.cz/cs-CZ/Search/List?searchQuery=$query&Hledat=Hledat";
 }
 
@@ -167,17 +168,17 @@ my $total = 0;
 my $total_invest = 0;
 
 foreach (keys %$bestDeal) {
+	next unless $shopping_list->{$_}{stocks} - $shopping_list->{$_}{max_stock_amount};
 	if ($shopping_list->{$_}{strategy}) {
+
 		my $ratio = int($bestDeal->{$_}{deal} / $bestDeal->{$_}{invest} * 100);
-			$total += $bestDeal->{$_}{deal};
-			$total_invest += $bestDeal->{$_}{invest};
-			print pack("A20xA8xA6xA6xA9", $_, $bestDeal->{$_}{deal}, $bestDeal->{$_}{invest}, "$ratio%", $bestDeal->{$_}{quantity}.$bestDeal->{$_}{unit});
+		$total += $bestDeal->{$_}{deal};
+		$total_invest += $bestDeal->{$_}{invest};
+		print pack("A20xA8xA6xA6xA9", $_, $bestDeal->{$_}{deal}, $bestDeal->{$_}{invest}, "$ratio%", $bestDeal->{$_}{quantity}.$bestDeal->{$_}{unit});
 
-			print join("\n".(' ' x 49), split(/,/, $bestDeal->{$_}{url}))."\n";
-			print ('-' x 120);
-			print "\n";
-
-
+		print join("\n".(' ' x 49), split(/,/, $bestDeal->{$_}{url}))."\n";
+		print ('-' x 120);
+		print "\n";
 	} elsif ($bestDeal->{$_}{deal} > 100) { # absolute saving greater then 100
 		my $ratio = int($bestDeal->{$_}{deal} / $bestDeal->{$_}{invest} * 100);
 		if ($ratio > 20) { # ROI higher then 20%
