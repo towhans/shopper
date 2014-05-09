@@ -1,0 +1,12 @@
+{
+   String : {
+      "max_stock_amount" : Int,
+      "product_search" : [String,...],
+      "ban_urls" : [ String,...],
+      "stocks" : Int,
+      "common_price" : Int,
+      "common_unit_price" : Int,
+      "product_category" : [String,...],
+      "product_urls" : [String,...]
+   },...
+}
