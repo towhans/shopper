@@ -95,7 +95,28 @@ my $prices = {};
 
 # find products and get their prices
 foreach my $item (keys %$shopping_list) {
-	print "Fetching prices for $item ...\n";
+	print "Fetching prices for $item ... ";
+	if ($shopping_list->{$item}{stocks} == $shopping_list->{$item}{max_stock_amount}) {
+		print "skipped (full stocks)\n";
+		next;
+	}
+	print "\n";
+
+#	if ($shopping_list->{$item}{common_price}) {
+#		print "$item : $shopping_list->{$item}{common_price} x $shopping_list->{$item}{max_stock_amount} = ".$shopping_list->{$item}{common_price} * $shopping_list->{$item}{max_stock_amount}."\n";
+#	}
+#	if ($shopping_list->{$item}{common_unit_price}) {
+#		print "$item : $shopping_list->{$item}{common_unit_price} x $shopping_list->{$item}{max_stock_amount} = ".$shopping_list->{$item}{common_unit_price} * $shopping_list->{$item}{max_stock_amount}."\n";
+#	}
+#
+#
+#	if ($shopping_list->{$item}{common_price} and ($shopping_list->{$item}{common_price} * $shopping_list->{$item}{max_stock_amount} < 100)) {
+#		print "\n\n\t$item - will never be a big deal\n\n";
+#	}
+#	if ($shopping_list->{$item}{common_unit_price} and ($shopping_list->{$item}{common_unit_price} * $shopping_list->{$item}{max_stock_amount} < 100)) {
+#		print "\n\n\t$item - will never be a big (unit) deal \n\n";
+#	}
+
 	my $ban = {};
 	map {$ban->{$_} = undef} @{$shopping_list->{$item}{ban_urls}};
 
@@ -114,6 +135,7 @@ foreach my $item (keys %$shopping_list) {
 		$prices->{$item}{tmp_urls}{$url}{price} = $price;
 		$prices->{$item}{tmp_urls}{$url}{itemPrice} = $itemPrice;
 		$prices->{$item}{tmp_urls}{$url}{unit} = $itemUnit;
+		$prices->{$item}{tmp_urls}{$url}{unit} = 'ks' unless $shopping_list->{$item}{common_unit_price};
 		$prices->{$item}{tmp_urls}{$url}{drop} = $drop;
 		$prices->{$item}{tmp_urls}{$url}{original} = $original;
 	}
@@ -163,7 +185,7 @@ foreach my $item (keys %$shopping_list) {
 
 #warn Dumper($bestDeal);
 
-my $packstring = "A20xA8xA6xA6xA9xA150";
+my $packstring = "A20xA8xA8xA6xA9xA150";
 print "\n";
 print pack($packstring, 'category', 'savings', 'cost', 'net', 'quantity', 'url')."\n";
 print ('=' x 120);
@@ -178,9 +200,9 @@ foreach (keys %$bestDeal) {
 		my $ratio = int($bestDeal->{$_}{deal} / $bestDeal->{$_}{invest} * 100);
 		$total += $bestDeal->{$_}{deal};
 		$total_invest += $bestDeal->{$_}{invest};
-		print pack("A20xA8xA6xA6xA9", $_, $bestDeal->{$_}{deal}, $bestDeal->{$_}{invest}, "$ratio%", $bestDeal->{$_}{quantity}.$bestDeal->{$_}{unit});
+		print pack("A20xA8xA8xA6xA9", $_, "best", $bestDeal->{$_}{invest}, "$ratio%", $bestDeal->{$_}{quantity}.$bestDeal->{$_}{unit});
 
-		print join("\n".(' ' x 49), split(/,/, $bestDeal->{$_}{url}))."\n";
+		print join("\n".(' ' x 51), split(/,/, $bestDeal->{$_}{url}))."\n";
 		print ('-' x 120);
 		print "\n";
 	} elsif ($bestDeal->{$_}{deal} > 100) { # absolute saving greater then 100
@@ -188,9 +210,9 @@ foreach (keys %$bestDeal) {
 		if ($ratio > 20) { # ROI higher then 20%
 			$total += $bestDeal->{$_}{deal};
 			$total_invest += $bestDeal->{$_}{invest};
-			print pack("A20xA8xA6xA6xA9", $_, $bestDeal->{$_}{deal}, $bestDeal->{$_}{invest}, "$ratio%", $bestDeal->{$_}{quantity}.$bestDeal->{$_}{unit});
+			print pack("A20xA8xA8xA6xA9", $_, $bestDeal->{$_}{deal}, $bestDeal->{$_}{invest}, "$ratio%", $bestDeal->{$_}{quantity}.$bestDeal->{$_}{unit});
 
-			print join("\n".(' ' x 49), split(/,/, $bestDeal->{$_}{url}))."\n";
+			print join("\n".(' ' x 51), split(/,/, $bestDeal->{$_}{url}))."\n";
 			print ('-' x 120);
 			print "\n";
 		}
