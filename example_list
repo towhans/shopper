@@ -1,140 +1,14 @@
 {
-   "olej_slunecnice" : {
-      "max_stock_amount" : 5,
-      "product_search" : ["slunecnicovy+olej"],
-      "ban_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120673869",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120673875",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019279720"
-      ],
-      "stocks" : 5,
-      "common_price" : 69,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : []
-   },
    "mycka" : {
       "max_stock_amount" : 192,
       "product_search" : [],
       "ban_urls" : [],
-      "stocks" : 192,
+      "stocks" : 0,
       "common_price" : null,
       "common_unit_price" : 7,
       "product_category" : [],
       "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120008950",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560663",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560675",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120708692",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120708703",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120009275",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018921644",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018921651",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120009309",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120009321",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120243549",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120008985",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120009004",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120008996",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120009056",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001017894024",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001017894031",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560692",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560686",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120816840",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120816834",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120243555",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560559",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560507",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560513",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560565",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560525",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560536",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560542",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560605",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120560611",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120243561"
-      ]
-   },
-   "pasta" : {
-      "max_stock_amount" : 10,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 29,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001011496286"
-      ]
-   },
-   "musli" : {
-      "max_stock_amount" : 3,
-      "product_search" : ["zapekane+musli"],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : null,
-      "common_unit_price" : 70,
-      "product_category" : [],
-      "product_urls" : []
-   },
-   "mleko" : {
-      "max_stock_amount" : 50,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 20,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019361395",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018131135",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019499326",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001012354899"
-      ]
-   },
-   "curaprox" : {
-      "max_stock_amount" : 6,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 6,
-      "common_price" : null,
-      "common_unit_price" : 85,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019130199",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120001957",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019130205"
-      ]
-   },
-   "sirup_relax" : {
-      "max_stock_amount" : 10,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 59,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120507601",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120507590",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120736266",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120061418",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120061430"
-      ]
-   },
-   "caro" : {
-      "max_stock_amount" : 0.6,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : null,
-      "common_unit_price" : 460,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001009635376",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019246968",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120011145"
+         "https://nakup.itesco.cz/groceries/cs-CZ/products/2001020019063"
       ]
    },
    "bref" : {
@@ -146,7 +20,7 @@
       "common_unit_price" : null,
       "product_category" : [],
       "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001015598795"
+         "https://nakup.itesco.cz/groceries/cs-CZ/products/2001020038642"
       ]
    },
    "olej_oliva" : {
@@ -158,42 +32,7 @@
       "common_unit_price" : null,
       "product_category" : [],
       "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001017346172",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120034958",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120601368",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120036599",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120479996"
-      ]
-   },
-   "nutella" : {
-      "max_stock_amount" : 4,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 52,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001000004942",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001013548587"
-      ]
-   },
-   "sirup" : {
-      "max_stock_amount" : 10,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 49,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120520055",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120522916",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120275782",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120048700",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120275765",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120048735",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120048717"
+         "https://nakup.itesco.cz/groceries/cs-CZ/products/2001017346172"
       ]
    },
    "avivaz" : {
@@ -205,88 +44,7 @@
       "common_unit_price" : 60,
       "product_category" : [],
       "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120625616",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120030185",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120030093",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120030248",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120030145",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019267406",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019267413",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120030156",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120030070",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120625605",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120709777",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120625576",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018807603",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019529221",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018807559",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019468001",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019468049",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120030254",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120709760",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001017720767",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001013302806",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019435676",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001015443590",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001013302790",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019435690",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001015443613",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120625547"
-      ]
-   },
-   "ryze" : {
-      "max_stock_amount" : 5,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 37,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001000094592",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001016807834",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018707620",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001000103850"
-      ]
-   },
-   "maslo" : {
-      "max_stock_amount" : 1,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : null,
-      "common_unit_price" : 183,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018209377",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019268984",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019333552",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001000129478"
-      ]
-   },
-   "veprova" : {
-      "max_stock_amount" : 4,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 120,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018361563"
-      ]
-   },
-   "sirup_kubik" : {
-      "max_stock_amount" : 10,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 69,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120507584",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120507578"
+         "https://nakup.itesco.cz/groceries/cs-CZ/products/2001020043887"
       ]
    },
    "kapsle" : {
@@ -298,26 +56,7 @@
       "common_unit_price" : 7,
       "product_category" : [],
       "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120597389",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120597251",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120608165",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120608171",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120608159",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120597337",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120597268",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120597297"
-      ]
-   },
-   "filtr_bazen" : {
-      "max_stock_amount" : 3,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 300,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://www.mall.cz/prislusenstvi-bazeny/marimex-filtracna-kartus-nahradna-"
+         "https://nakup.itesco.cz/groceries/cs-CZ/products/2001020160743"
       ]
    },
    "hrach" : {
@@ -329,74 +68,7 @@
       "common_unit_price" : null,
       "product_category" : [],
       "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001000092406",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019347160"
-      ]
-   },
-   "pytle" : {
-      "max_stock_amount" : 500,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : null,
-      "common_unit_price" : 1,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001010947710"
-      ]
-   },
-   "kukurice" : {
-      "max_stock_amount" : 10,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 21,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001000092499",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018442033"
-      ]
-   },
-   "kure" : {
-      "max_stock_amount" : 4,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 120,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120570893",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001012124188"
-      ]
-   },
-   "sirup_yo" : {
-      "max_stock_amount" : 10,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 71,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001014615424"
-      ]
-   },
-   "sirup_jupi" : {
-      "max_stock_amount" : 10,
-      "product_search" : [],
-      "ban_urls" : [],
-      "stocks" : 0,
-      "common_price" : 34,
-      "common_unit_price" : null,
-      "product_category" : [],
-      "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001012299664",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001012299664",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001012299824",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001012299879",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001012299725"
+         "https://nakup.itesco.cz/groceries/cs-CZ/products/2001120708035"
       ]
    },
    "protlak" : {
@@ -408,42 +80,19 @@
       "common_unit_price" : 71,
       "product_category" : [],
       "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018783907",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120001410",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001005127813",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001011634282",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120503185"
+         "https://nakup.itesco.cz/groceries/cs-CZ/products/2001005127813"
       ]
    },
    "toaletak" : {
       "max_stock_amount" : 64,
       "product_search" : [],
       "ban_urls" : [],
-      "stocks" : 30,
+      "stocks" : 0,
       "common_price" : null,
       "common_unit_price" : 7,
       "product_category" : [],
       "product_urls" : [
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120094310",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120297675",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018724634",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120518922",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018797904",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001010522085",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019005671",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120702312",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019234705",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019402807",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019404160",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019027499",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001120052118",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019628412",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018104191",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019575877",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018104146",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001019395871",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001015730591",
-         "http://nakup.itesco.cz/cs-CZ/ProductDetail/ProductDetail/2001018104184"
+         "https://nakup.itesco.cz/groceries/cs-CZ/products/2001130709727"
       ]
    }
 }

@@ -273,9 +273,9 @@ sub GetPrice {
 	} elsif ($url =~ /itesco\.cz/) {
 
 		my $body = Fetch($url);
-		my ($pricePerPiece) = $body =~ /\((.*) Kč\/Kus\)/;
-		my ($pricePerKilo) = $body =~ /\((.*) Kč\/kg\)/;
-		my ($pricePerLiter) = $body =~ /\((.*) Kč\/l\)/;
+		my ($pricePerPiece) = $body =~ /class="value">([^<]*)<\/span><span class="currency">Kč<\/span><\/span><span class="weight">\/Kus/;
+		my ($pricePerKilo) = $body =~ /class="value">([^<]*)<\/span><span class="currency">Kč<\/span><\/span><span class="weight">\/kg/;
+		my ($pricePerLiter) = $body =~ /class="value">([^<]*)<\/span><span class="currency">Kč<\/span><\/span><span class="weight">\/l/;
 
 		my $itemUnit = 'ks';
 		$itemUnit = 'l' if $pricePerLiter;
@@ -283,7 +283,7 @@ sub GetPrice {
 		my $pricePerItem = $pricePerPiece || $pricePerKilo || $pricePerLiter;
 		warn "Product not available: $url\n" unless $pricePerItem;
 
-		my ($price) = $body =~ />(\d*),(\d*) Kč<\/span>/;
+		my ($price) = $body =~ /<span data-auto="price-value" class="value">(\d*),(\d*)<\/span><span class="space"> <\/span><span class="currency">Kč<\/span>/;
 		$price =~ s/,/\./ if $price;
 		$price =~ s/&#160;// if $price;
 		$pricePerItem =~ s/,/\./ if $pricePerItem;
@@ -327,6 +327,7 @@ sub Fetch {
 	}
 
 	my $res = eval { $furl->get( $url, $headers) };
+	print $res->code;
 	my $body = $res->body;
 	make_path($dir);
 	write_file($file, $body);
